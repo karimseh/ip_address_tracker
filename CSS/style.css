@@ -1,0 +1,330 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap');
+
+* {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0;
+
+
+}
+
+.attribution {
+    font-size: 11px;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color:rgb(212, 191, 191);
+    
+}
+
+.attribution a {
+    color: hsl(228, 45%, 44%);
+}
+
+body {
+    font-family: Rubik, 'sans-serif';
+    font-size: 18px;
+}
+
+header {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+
+    -webkit-box-align: center;
+
+    -ms-flex-align: center;
+
+    align-items: center;
+    height: 250px;
+    background-image: url(../images/pattern-bg.png);
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 20px 20px;
+    position: relative;
+
+}
+
+header h1 {
+    color: #fff;
+    font-size: 25px;
+    font-weight: 500;
+    padding-bottom: 15px;
+    padding-top: 10px;
+    margin-bottom: 10px;
+}
+
+form {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+
+header input {
+    padding: 10px 20px;
+    border-radius: 13px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border: none;
+    width: 275px;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+header input.error {
+    border: solid 2px rgb(247, 45, 45);
+}
+
+#err {
+    color: rgb(236, 77, 77);
+    font-weight: 500;
+    display: none;
+}
+
+#err.show {
+    display: block;
+}
+
+header button {
+    border: none;
+    border-radius: 13px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    padding: 18px 23px;
+    background-color: #000;
+
+}
+
+header .infos {
+    width: 100%;
+    background-color: #fff;
+    border-radius: 13px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+
+    gap: 12px;
+    padding: 25px 35px;
+    margin-top: 20px;
+    z-index: 100;
+    -webkit-box-shadow: 0px 2px 9px -1px #000000;
+    box-shadow: 0px 2px 9px -1px #000000;
+}
+
+header .info {
+    display: none;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    gap: 4px;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    text-align: center;
+
+}
+
+.info.show {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+.info.hide {
+    display: none;
+}
+
+.spinner {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.spinner.hide {
+    display: none;
+}
+
+.spinner.show {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+.spinner::after {
+    content: "";
+    width: 40px;
+    height: 40px;
+    border: 2px solid #f3f3f3;
+    border-top: 3px solid #0e0d0d;
+    border-radius: 100%;
+    will-change: transform;
+    -webkit-animation: spin 1s infinite linear;
+    animation: spin 1s infinite linear
+}
+
+header .info small {
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: hsl(0, 0%, 59%);
+    font-weight: 700;
+    font-size: 12px;
+
+}
+
+header .info p {
+    font-weight: 500;
+    font-size: 22px;
+}
+
+#mapid {
+    height: calc(100vh - 263px);
+    position: relative;
+    z-index: 0;
+}
+
+@-webkit-keyframes spin {
+    from {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+
+    to {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    from {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+
+    to {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    header {
+        min-height: 300px;
+    }
+
+    header .infos {
+
+        position: relative;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+        flex-direction: row;
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        width: 70%;
+        padding: 30px 45px 50px 45px;
+        margin-top: 40px;
+
+    }
+
+    header .info {
+        -webkit-box-align: start;
+        -ms-flex-align: start;
+        align-items: flex-start;
+        gap: 10px;
+
+
+    }
+
+    header .info:last-child {
+        border-right: none;
+    }
+
+
+
+    header h1 {
+        font-size: 35px;
+        margin-bottom: 40px;
+    }
+
+    header input {
+        padding: 20px;
+        font-size: 20px;
+        width: 45vw;
+
+    }
+
+    header input:focus {
+        outline: none;
+
+    }
+
+    header button {
+        cursor: pointer;
+    }
+
+    header button:hover {
+        background-color: rgb(58, 58, 58);
+
+    }
+
+    header button:focus {
+        outline: none;
+
+    }
+
+    .spinner {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+    }
+
+    .sep {
+        display: block;
+        width: 1px;
+        height: 55px;
+        background-color: hsl(0, 0%, 59%);
+
+    }
+
+    .sep.hide {
+        display: none;
+    }
+
+    .sep.show {
+        display: block;
+    }
+   #mapid{
+       height: calc(100vh - 300px);
+   }
+}

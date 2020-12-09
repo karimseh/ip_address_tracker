@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+        integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+        crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+        integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+        crossorigin=""></script>
+    <link rel="stylesheet" href="CSS/style.css" />
+    <title>Frontend Mentor | IP Address Tracker</title>
+</head>
+
+<body>
+    <header>
+        <h1>IP Address Tracker</h1>
+        <form id="form">
+            <input type="text" name="ipAdress" id="ip" placeholder="Search for any IP address or domain" />
+            <button type="submit">
+                <svg xmlns="http://www.w3.org/2000/svg" width="11" height="14">
+                    <path fill="none" stroke="#FFF" stroke-width="3" d="M2 1l6 6-6 6" />
+                </svg>
+            </button>
+        </form>
+        <small id="err">not a valid</small>
+        <div class="infos">
+            <div class="spinner show"></div>
+            <div class="info">
+                <small>IP Address</small>
+                <p id="ip_addr">-</p>
+            </div>
+            <span class="sep hide"></span>
+            <div class="info">
+                <small>Location</small>
+                <p id="loc">-</p>
+            </div>
+            <span class="sep hide"></span>
+            <div class="info">
+                <small>Timezone</small>
+                <p id="time">-</p>
+            </div>
+            <span class="sep hide"></span>
+            <div class="info">
+                <small>ISP</small>
+                <p id="isp">-</p>
+            </div>
+        </div>
+    </header>
+
+    <div id="mapid"></div>
+
+    <div class="attribution">
+        Challenge by
+        <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. Coded by <a
+            href="https://github.com/karimseh">Karim SEHIMI</a>.
+    </div>
+
+    <script src="JS/app.js"></script>
+</body>
+
+</html>
