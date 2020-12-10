@@ -18,10 +18,12 @@ const resetFields = () => {
 }
 //show on map
 const showMap = (data) => {
+    
     let lat = data['location']['lat'];
-    let lng = data['location']['lng']
-    mymap.setView([lat, lng], 13);
-    L.marker([lat, lng], { icon: Icon }).addTo(mymap);
+    let lng = data['location']['lng'];
+    mymap.setView([lat, lng], 13); 
+    marker.setLatLng([lat,lng]);
+    
 };
 //fil the fileds up
 const fillUp = (data) => {
@@ -149,3 +151,4 @@ var Icon = L.icon({
     iconUrl: myIconUrl,
 
 });
+ let marker = L.marker([0, 0], { icon: Icon }).addTo(mymap);
