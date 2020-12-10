@@ -77,7 +77,7 @@ const spinnerShow = () => {
 };
 //get user IP
 const getIp = async () => {
-    const response = await fetch("http://api.ipify.org/?format=json");
+    const response = await fetch("https://api.ipify.org/?format=json");
     const data = await response.json();
     return data;
 }
@@ -104,7 +104,7 @@ const getInfos = async (ipAddr) => {
 form.addEventListener('submit', e => {
     e.preventDefault();
     spinnerShow();
-    getInfos(ip_input.value)
+    getInfos(ip_input.value.trim())
         .then(data => {
             fillUp(data);
             spinnerHide();
