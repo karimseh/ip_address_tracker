@@ -75,9 +75,14 @@ header input {
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
     border: none;
-    width: 275px;
-    font-size: 18px;
+    width: 250px;
+    font-size: 16px;
     font-weight: 500;
+}
+
+header input:focus {
+    outline: none;
+
 }
 
 header input.error {
@@ -116,7 +121,7 @@ header .infos {
     -ms-flex-direction: column;
     flex-direction: column;
 
-    gap: 12px;
+    gap: 8px;
     padding: 25px 35px;
     margin-top: 20px;
     z-index: 100;
@@ -130,7 +135,7 @@ header .info {
     -webkit-box-direction: normal;
     -ms-flex-direction: column;
     flex-direction: column;
-    gap: 4px;
+    gap: 3px;
     -webkit-box-pack: center;
     -ms-flex-pack: center;
     justify-content: center;
@@ -174,6 +179,7 @@ header .info {
     display: flex;
 }
 
+
 .spinner::after {
     content: "";
     width: 40px;
@@ -191,13 +197,17 @@ header .info small {
     text-transform: uppercase;
     color: hsl(0, 0%, 59%);
     font-weight: 700;
-    font-size: 12px;
+    font-size: 10px;
+
+}
+header button:focus {
+    outline: none;
 
 }
 
 header .info p {
     font-weight: 500;
-    font-size: 22px;
+    font-size: 18px;
 }
 
 #mapid {
@@ -231,9 +241,6 @@ header .info p {
 }
 
 @media only screen and (min-width: 992px) {
-    header {
-        min-height: 300px;
-    }
 
     header .infos {
 
@@ -270,8 +277,8 @@ header .info p {
 
 
     header h1 {
-        font-size: 35px;
-        margin-bottom: 40px;
+        font-size: 30px;
+        margin-bottom: 20px;
     }
 
     header input {
@@ -281,10 +288,6 @@ header .info p {
 
     }
 
-    header input:focus {
-        outline: none;
-
-    }
 
     header button {
         cursor: pointer;
@@ -295,10 +298,7 @@ header .info p {
 
     }
 
-    header button:focus {
-        outline: none;
 
-    }
 
     .spinner {
         position: absolute;
@@ -325,6 +325,6 @@ header .info p {
         display: block;
     }
    #mapid{
-       height: calc(100vh - 300px);
+       height: calc(100vh - 250px);
    }
 }
