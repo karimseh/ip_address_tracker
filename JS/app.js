@@ -18,9 +18,10 @@ const resetFields = () => {
 }
 //show on map
 const showMap = (data) => {
-    
+
     let lat = data['location']['lat'];
     let lng = data['location']['lng'];
+    console.log(data['location'])
     mymap.setView([lat, lng], 13); 
     marker.setLatLng([lat,lng]);
     
@@ -79,8 +80,9 @@ const spinnerShow = () => {
 };
 //get user IP
 const getIp = async () => {
-    const response = await fetch("https://api.ipify.org/?format=json");
+    const response = await fetch("https://ksehipify.herokuapp.com/?format=json",{mode: 'cors'});
     const data = await response.json();
+    console.log(data)
     return data;
 }
 
@@ -89,15 +91,16 @@ const getInfos = async (ipAddr) => {
     let response;
     const ip_regex = /^(?:[0-9]{1,3}\.){3}[0-9]{1,3}$/;
     if (ip_regex.test(ipAddr)) {
-        response = await fetch("https://geo.ipify.org/api/v1?apiKey=at_MMEDYAsuny1LhQSRQeypWb3fHqEnL&ipAddress=" + ipAddr);
+        response = await fetch("https://chilling-vault-17190.herokuapp.com/https://geo.ipify.org/api/v1?apiKey=at_2pFIBazg34gPAd7O92f6jepymPcVh&ipAddress=" + ipAddr,{mode: 'cors'});
     } else {
-        response = await fetch("https://geo.ipify.org/api/v1?apiKey=at_MMEDYAsuny1LhQSRQeypWb3fHqEnL&domain=" + ipAddr);
+        response = await fetch("https://chilling-vault-17190.herokuapp.com/https://geo.ipify.org/api/v1?apiKey=at_2pFIBazg34gPAd7O92f6jepymPcVh&domain=" + ipAddr,{mode: 'cors'});
     }
 
     if (response.status !== 200) {
         throw new Error('Not a valid ip Address / domain');
     }
     const data = await response.json();
+    console.log(data);
     return data;
 };
 
