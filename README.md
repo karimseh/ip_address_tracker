@@ -11,6 +11,6 @@ In this project i used :
 
 ---
 
-![](/127.0.0.1_5500_ (2).png)
+![](/127.0.0.1_5500.png)
 
-## link to preview site: https://ip-address-tracker.karimseh.vercel.app/
+## link to preview site: https://ip-address-tracker-ecru.vercel.app/
