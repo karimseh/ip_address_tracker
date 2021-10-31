@@ -8,9 +8,8 @@ In this project i used :
  - Css FelxBox
  
 
-
+![](127.0.0.1_5500.png)
 ---
 
-![](/127.0.0.1_5500.png)
 
 ## link to preview site: https://ip-address-tracker-ecru.vercel.app/
