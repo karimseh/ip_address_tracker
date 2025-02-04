@@ -19,8 +19,8 @@ const resetFields = () => {
 //show on map
 const showMap = (data) => {
 
-    let lat = data['lat'];
-    let lng = data['lon'];
+    let lat = data['latitude'];
+    let lng = data['longitude'];
     //console.log(data['location'])
     mymap.setView([lat, lng], 13); 
     marker.setLatLng([lat,lng]);
@@ -28,10 +28,10 @@ const showMap = (data) => {
 };
 //fil the fileds up
 const fillUp = (data) => {
-    const ip = `${data['query']}`;
-    const loc = `${data['regionName']}, ${data['country']} ${data['zip']}`;
-    const time = `UTC ${data['timezone']}`;
-    const isp = `${data['isp']}`;
+    const ip = `${data['ip']}`;
+    const loc = `${data['city']}, ${data['country_name']} ${data['zipcode']}`;
+    const time = `UTC ${data['time_zone']['name']}`;
+    const isp = `${data['organization']}`;
     ip_out.innerText = ip;
     loc_f.innerText = loc;
     timezone_f.innerText = time;
@@ -96,9 +96,9 @@ const getInfos = async (ipAddr) => {
     let response;
     const ip_regex = /^(?:[0-9]{1,3}\.){3}[0-9]{1,3}$/;
     if (ip_regex.test(ipAddr)) {
-        response = await fetch("http://ip-api.com/json/" + ipAddr,{mode: 'cors'});
+        response = await fetch("https://api.ipgeolocation.io/ipgeo?apiKey=e4d9308b065646d5a67eec90b0a9181d&ip=" + ipAddr,{mode: 'cors'});
     } else {
-        response = await fetch("http://ip-api.com/json/" + ipAddr,{mode: 'cors'});
+        response = await fetch("https://api.ipgeolocation.io/ipgeo?apiKey=e4d9308b065646d5a67eec90b0a9181d&ip=" + ipAddr,{mode: 'cors'});
     }
 
     if (response.status !== 200) {
