@@ -30,7 +30,11 @@ const markerIconUrl = encodeURI("data:image/svg+xml," + markerSvg).replace(
   "#",
   "%23"
 );
-const markerIcon = L.icon({ iconUrl: markerIconUrl });
+const markerIcon = L.icon({
+  iconUrl: markerIconUrl,
+  iconSize: [46, 56],
+  iconAnchor: [23, 56],
+});
 const marker = L.marker([0, 0], { icon: markerIcon }).addTo(map);
 
 // Reset all info fields to placeholder
@@ -86,13 +90,32 @@ async function getUserIp() {
   return data.ip;
 }
 
-// Fetch geolocation info for an IP address
+// Fetch geolocation info for an IP address or domain
 const IP_REGEX = /^(?:(?:25[0-5]|2[0-4]\d|[01]?\d\d?)\.){3}(?:25[0-5]|2[0-4]\d|[01]?\d\d?)$/;
 const API_KEY = import.meta.env.VITE_IPGEO_API_KEY;
 
-async function getGeoInfo(query) {
+// Resolve a domain name to an IP using Cloudflare DNS-over-HTTPS
+async function resolveDomain(domain) {
   const response = await fetch(
-    `https://api.ipgeolocation.io/ipgeo?apiKey=${API_KEY}&ip=${encodeURIComponent(query)}`,
+    `https://cloudflare-dns.com/dns-query?name=${encodeURIComponent(domain)}&type=A`,
+    { headers: { Accept: "application/dns-json" } }
+  );
+  const data = await response.json();
+  const record = data.Answer?.find((r) => r.type === 1);
+  if (!record) {
+    throw new Error("Could not resolve domain");
+  }
+  return record.data;
+}
+
+async function getGeoInfo(query) {
+  let ip = query;
+  if (!IP_REGEX.test(query)) {
+    ip = await resolveDomain(query);
+  }
+
+  const response = await fetch(
+    `https://api.ipgeolocation.io/ipgeo?apiKey=${API_KEY}&ip=${encodeURIComponent(ip)}`,
     { mode: "cors" }
   );
 
